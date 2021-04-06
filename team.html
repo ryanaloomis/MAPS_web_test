@@ -11,9 +11,130 @@
     <link href="css/modern-business.css" rel="stylesheet">
     <link href="css/maps.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="https://openlayers.org/en/v6.5.0/css/ol.css" type="text/css">
+	<script src="https://openlayers.org/en/v6.5.0/build/ol.js" type="text/javascript"></script>
+
+    
+    <script>
+     /* OSM & OL example code provided by https://mediarealm.com.au/ */
+     var map;
+     var mapLat = 20.0;
+	 var mapLng = 10;
+     var mapDefaultZoom = 2;
+    
+     function initialize_map() {
+      var Times = '\u00D7';
+      map = new ol.Map({
+        target: "map",
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM({
+                      url: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" 
+                })
+            })
+        ],
+        controls: ol.control.defaults().extend([
+            new ol.control.ZoomToExtent({label: Times})
+        ]),
+        view: new ol.View({
+            center: ol.proj.fromLonLat([mapLng, mapLat]),
+            zoom: mapDefaultZoom,
+            multiWorld: false
+        })
+      });       
+    }
+    
+    function add_PI(lat, lng) {
+      var vectorLayer = new ol.layer.Vector({
+        source:new ol.source.Vector({
+          features: [new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([parseFloat(lng), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857')),
+            })]
+        }),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            anchor: [0.5, 0.5],
+            anchorXUnits: "fraction",
+            anchorYUnits: "fraction",
+            src: "images/RedDot.svg",
+            scale: 1.8,
+            opacity: 0.7
+          })
+        })
+      });
+
+      map.addLayer(vectorLayer); 
+    }
+    
+    function add_CoI(lat, lng) {
+      var vectorLayer = new ol.layer.Vector({
+        source:new ol.source.Vector({
+          features: [new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.transform([parseFloat(lng), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857')),
+            })]
+        }),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            anchor: [0.5, 0.5],
+            anchorXUnits: "fraction",
+            anchorYUnits: "fraction",
+            src: "images/BlueDot.svg"
+          })
+        })
+      });
+
+      map.addLayer(vectorLayer); 
+    }
+    
+    </script>
+
+
 </head>
 
-<body>
+<body onload="initialize_map();
+              
+                add_PI(42.3814608,-71.1281664);
+                add_PI(-33.499146,-70.6149164);
+                add_PI(53.805426,-1.5528636);
+                add_PI(35.7126775,139.761989);
+                add_PI(42.2757126,-83.7362278);
+                
+                add_CoI(42.3814608,-71.1281664);
+                add_CoI(38.036921,-78.51787329);
+                add_CoI(42.2757126,-83.7362278);
+                add_CoI(42.3814608,-71.1281664);
+                add_CoI(38.9586664,-77.063507);
+                add_CoI(41.7902766,-87.6015108);
+                add_CoI(45.1942821,5.7616043);
+                add_CoI(52.1548526,4.483884);
+                add_CoI(42.2757126,-83.7362278);
+                add_CoI(42.2757126,-83.7362278);
+                add_CoI(35.6754121,139.5369406);
+                add_CoI(38.0340277,-78.510016);
+                add_CoI(40.7981876,-77.8629089);
+                add_CoI(35.6754121,139.5369406);
+                add_CoI(42.2757126,-83.7362278);
+                add_CoI(53.805426,-1.5528636);
+                add_CoI(-33.3973779,-70.5348107);
+                add_CoI(49.3960794,8.724135);
+                add_CoI(42.3814608,-71.1281664);
+                add_CoI(32.0580882,118.805374);
+                add_CoI(42.3814608,-71.1281664);
+                add_CoI(45.1942821,5.7616043);
+                add_CoI(35.6754121,139.5369406);
+                add_CoI(-33.3973779,-70.5348107);
+                add_CoI(42.3814608,-71.1281664);
+                add_CoI(32.2324358,-110.9473494);
+                add_CoI(-33.3973779,-70.5348107);
+                add_CoI(42.3814608,-71.1281664);
+                add_CoI(35.6754121,139.5369406);
+                add_CoI(35.7126775,139.761989);
+                add_CoI(42.2757126,-83.7362278);
+                add_CoI(42.3814608,-71.1281664);
+                add_CoI(43.0744266,-89.4055899);
+              
+              ">
 
        <!-- Navigation -->
        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -79,10 +200,11 @@
         </div>
         <!-- /.row -->
 
+        <div id="map" style="width: 800px; height: 400px;"></div>
+
         <!-- Content Row -->
         <div class="row">
             <div class="col-lg-12">
-                <img src="images/team-sm.png" alt="">
 
 				<h2>PIs</h2>
                 <p>Karin Öberg (Center for Astrophysics | Harvard & Smithsonian),</p>
@@ -106,7 +228,7 @@
                 <p>Ian Czekala (The Pennsylvania State University),</p>
                 <p>Kenji Furuya (National Astronomical Observatory of Japan),</p>
                 <p>Jane Huang (University of Michigan),</p>
-                <p>John~D.~Ilee (University of Leeds),</p>
+                <p>John D. Ilee (University of Leeds),</p>
                 <p>Nicolas T. Kurtovic (Max-Planck-Institut für Astronomie),</p>
                 <p>Romane Le Gal (Center for Astrophysics | Harvard & Smithsonian),</p>
                 <p>Yao Liu (Purple Mountain Observatory & Key Laboratory for Radio Astronomy),</p>
