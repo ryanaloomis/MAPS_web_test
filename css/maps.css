@@ -2,6 +2,30 @@ body {
     margin-top: 31px;
 }
 
+.panel-group-auth{}
+
+.panel-auth{margin-bottom:10px;background-color:white;border:0px solid transparent;border-radius:4px;-webkit-box-shadow:0 0px 0px rgba(0,0,0,0);box-shadow:0 0px 0px rgba(0,0,0,0)}
+
+.panel-heading-auth {
+    background-color: white;
+    padding:0px 0px;
+    border-bottom:1px solid transparent;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+}
+
+.panel-body-auth {
+    background-color: white;
+}
+
+.panel-title-auth {
+    background-color: white;
+}
+
+.list-group-item-auth {
+    border: none;
+}
+
 .carousel-caption-black {
     position:absolute;
     right:15%;
