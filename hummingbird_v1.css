@@ -1,0 +1,33 @@
+.stylish-input-group .input-group-addon{
+    background: white !important;
+}
+.stylish-input-group .form-control{
+    //border-right:0;
+    box-shadow:0 0 0;
+    border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.h-scroll {
+    background-color: #fcfdfd;
+    height: 100px;
+    overflow-y: scroll;
+}
+
+.h-scroll-med {
+    background-color: #fcfdfd;
+    height: 260px;
+    overflow-y: scroll;
+}
+
+
+.h-scroll-large {
+    background-color: #fcfdfd;
+    height: 600px; /* %-height of the viewport */
+    /* position: fixed; */
+    overflow-y: scroll;
+    /* overflow-x: hidden; */
+}

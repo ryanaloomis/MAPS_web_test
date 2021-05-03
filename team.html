@@ -11,18 +11,19 @@
     <link href="css/modern-business.css" rel="stylesheet">
     <link href="css/maps.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+    <link rel="shortcut icon" href="images/MAPS_logo.ico"/>
+
     <link rel="stylesheet" href="https://openlayers.org/en/v6.5.0/css/ol.css" type="text/css">
 	<script src="https://openlayers.org/en/v6.5.0/build/ol.js" type="text/javascript"></script>
 
-    
+
     <script>
      /* OSM & OL example code provided by https://mediarealm.com.au/ */
      var map;
      var mapLat = 20.0;
 	 var mapLng = 10;
      var mapDefaultZoom = 2;
-    
+
      function initialize_map() {
       var Times = '\u00D7';
       map = new ol.Map({
@@ -30,7 +31,7 @@
         layers: [
             new ol.layer.Tile({
                 source: new ol.source.OSM({
-                      url: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" 
+                      url: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 })
             })
         ],
@@ -43,9 +44,9 @@
             multiWorld: false
         })
       });
-                   
+
     }
-    
+
     function add_PI(lat, lng) {
       var vectorLayer = new ol.layer.Vector({
         source:new ol.source.Vector({
@@ -65,9 +66,9 @@
         })
       });
 
-      map.addLayer(vectorLayer); 
+      map.addLayer(vectorLayer);
     }
-    
+
     function add_CoI(lat, lng) {
       var vectorLayer = new ol.layer.Vector({
         source:new ol.source.Vector({
@@ -85,9 +86,9 @@
         })
       });
 
-      map.addLayer(vectorLayer); 
+      map.addLayer(vectorLayer);
     }
-    
+
     </script>
 
 
@@ -100,7 +101,7 @@
                 add_PI(53.805426,-1.5528636);
                 add_PI(35.7126775,139.761989);
                 add_PI(42.2757126,-83.7362278);
-                
+
                 add_CoI(42.3814608,-71.1281664);
                 add_CoI(38.036921,-78.51787329);
                 add_CoI(42.2757126,-83.7362278);
@@ -134,11 +135,11 @@
                 add_CoI(42.2757126,-83.7362278);
                 add_CoI(42.3814608,-71.1281664);
                 add_CoI(43.0744266,-89.4055899);
-              
+
               ">
 
-       <!-- Navigation -->
-       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -148,10 +149,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!--<img class="intro-img" src="images/logo.png" alt=""> -->
                 <a href="index.html">
-                    <img src="images/MAPS_logo_light.png" height="80" class="d-inline-block align-middle" alt="MAPS logo">
-                </a>            
+                    <img src="images/MAPS_logo_light.png" height="90" class="d-inline-block align-middle" alt="MAPS logo">
+                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -163,15 +163,17 @@
                         <a href="overview.html">Overview</a>
                     </li>
                     <li>
+                        <a href="disks.html">Disks</a>
+                    </li>
+                    <li>
+                        <a href="visualizations.html">Visualizations</a>
+                    </li>
+                    <li>
                         <a href="publications.html">Publications</a>
                     </li>
                     <li>
-                        <a href="overview.html">Disks</a>
+                        <a href="press.html">Press</a>
                     </li>
-                    <li>
-                        <a href="overview.html">Visualizations</a>
-                    </li>
-                    <li>
                     <li>
                         <a href="team.html">Team</a>
                     </li>
@@ -186,13 +188,14 @@
         <!-- /.container -->
     </nav>
 
+
     <!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Team</h1>
+                <h1 class="page-header">MAPS collaboration</h1>
                 <!--
                 <ol class="breadcrumb">
                     <li><a href="index.html">Home</a>
@@ -207,7 +210,7 @@
         <!-- Introduction -->
         <div class="row">
             <div class="col-lg-12">
-                <p> The MAPS team involves 37 astronomers across 8 countries and 19 institutions. </p>
+                <p> The MAPS collaboration involves 37 astronomers across 8 countries and 19 institutions. </p>
             </div>
         </div>
         <!-- /.row -->
@@ -221,7 +224,7 @@
         <!-- /.row -->
 
         <br>
-        
+
 
         <!-- Collapsible PIs list -->
         <div class="row">
@@ -231,6 +234,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#collapse_PIs">Co Principal Investigators</a> <img src="images/RedDot.svg" height="25"/>
+                                <span class="caret"></span>
                             </h4>
                         </div>
                         <div id="collapse_PIs" class="panel-collapse collapse">
@@ -247,7 +251,7 @@
                 </div>
             </div>
         </div>
-        <!-- /.row -->  
+        <!-- /.row -->
 
         <!-- Collapsible CoIs list -->
         <div class="row">
@@ -257,6 +261,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#collapse_CoIs">Co Investigators</a> <img src="images/BlueDot.svg" height="25"/>
+                                <span class="caret"></span>
                             </h4>
                         </div>
                         <div id="collapse_CoIs" class="panel-collapse collapse">
@@ -300,8 +305,8 @@
                 </div>
             </div>
         </div>
-        <!-- /.row -->  
-        
+        <!-- /.row -->
+
         <!-- Collapsible Calibration Team list -->
         <div class="row">
             <div class="col-lg-3a">
@@ -310,6 +315,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#collapse_calibration">Calibration Team</a>
+                                <span class="caret"></span>
                             </h4>
                         </div>
                         <div id="collapse_calibration" class="panel-collapse collapse">
@@ -325,13 +331,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-3a">
                 <div class="panel-group">
                     <div class="panel panel-default" style="width: 180px">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#collapse_imaging">Imaging Team</a>
+                                <span class="caret"></span>
                             </h4>
                         </div>
                         <div id="collapse_imaging" class="panel-collapse collapse">
@@ -347,13 +354,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-3a">
                 <div class="panel-group">
                     <div class="panel panel-default" style="width: 180px">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#collapse_modelling">Modelling Team</a>
+                                <span class="caret"></span>
                             </h4>
                         </div>
                         <div id="collapse_modelling" class="panel-collapse collapse">
@@ -369,13 +377,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-3a">
                 <div class="panel-group">
                     <div class="panel panel-default" style="width: 180px">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" href="#collapse_website">Website Team</a>
+                                <span class="caret"></span>
                             </h4>
                         </div>
                         <div id="collapse_website" class="panel-collapse collapse">
@@ -391,18 +400,18 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        <!-- /.row --> 
-
-       
+        <!-- /.row -->
 
 
 
-        
-        
-        
-        
+
+
+
+
+
+
 
         <hr>
 
