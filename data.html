@@ -97,7 +97,7 @@
                 </li>
                 <li>Image cubes at three angular resolutions for the Band 3 lines (0”.3 and 0”.5 circularized beams, and Briggs robust=0.5 non-circularized), and three angular resolutions for the Band 6 lines (0”.15, 0”.2, and 0”.3 circularized, and robust=0.5 non-circularized), as well as the associated Keplerian CLEAN masks, CLEAN models, and python scripts. The 0.3” and robust=0.5 cubes are imaged both with and without continuum subtraction. All image cubes are delivered with and without primary beam correction, and with and without the so called JvM correction applied (Jorsater, S., & van Moorsel, G. A. 1995, AJ, 110, 2037) (see <a href="publications.html/#MAPS_II">MAPS II</a>)
                 </li>
-                <li>Value added products for each line and spatial resolution: Zeroth moment maps, rotational maps, peak intensity maps, and radial profiles (see <a href="publications.html/#MAPS_III">MAPS III</a>)
+                <li>Value added products for each line and spatial resolution: moment maps, rotational maps, peak intensity maps, and radial profiles (see <a href="publications.html/#MAPS_III">MAPS III</a>)
                 </li>
                 <li>Emission surfaces for the strongest lines (see <a href="publications.html/#MAPS_IV">MAPS IV</a>)
                 </li>
@@ -184,8 +184,17 @@
                           </li>
                       </ul>
                     </div>
-                  <div class="well h-scroll" id="displayPresets">
-                    No presets selected. Add a preset or manually select data.
+                  <div class="well h-scroll" id="displayPresets">No presets selected. Add a preset or manually select data.</div>
+
+                  <div>
+                    <label class="checkbox-inline"><input type="checkbox" value="">Measurement sets</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="">Images</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="">Moment maps</label>
+                  </div>
+
+                  <div>
+                    <label class="checkbox-inline"><input type="checkbox" value="">Radial profiles</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="">Reproduction scripts + models</label>
                   </div>
 
 
@@ -4534,6 +4543,7 @@
     });
     $( "#uncheckAll" ).click(function() {
       $("#treeview").hummingbird("uncheckAll");
+      resetPresets()
     });
     $( "#collapseAll" ).click(function() {
       $("#treeview").hummingbird("collapseAll");
@@ -4582,7 +4592,18 @@
 
     <script>
       function addPreset(option) {
-        $("#displayPresets").html(option);
+        if ($("#displayPresets").html() == "No presets selected. Add a preset or manually select data.") {
+          $("#displayPresets").html(option);
+        } else {
+        var oldText = $("#displayPresets").html()
+        $("#displayPresets").html(oldText+'<br>'+option);
+        }
+      }
+    </script>
+
+    <script>
+      function resetPresets() {
+        $("#displayPresets").html("No presets selected. Add a preset or manually select data.")
       }
     </script>
 
