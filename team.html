@@ -36,15 +36,17 @@
             })
         ],
         controls: ol.control.defaults().extend([
-            new ol.control.ZoomToExtent({label: Times})
+            new ol.control.ZoomToExtent({label: Times, 
+                                         extent: [-14541108.484871361, -5554120.769414361, 16767498.300736833, 10100182.623389736]
+                                        })
         ]),
         view: new ol.View({
             center: ol.proj.fromLonLat([mapLng, mapLat]),
             zoom: mapDefaultZoom,
             multiWorld: false
         })
-      });
-
+      });  
+      
     }
 
     function add_PI(lat, lng) {
