@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+
 .splash_container {
   display: flex;
   align-items: center;
@@ -22,7 +23,7 @@
 .splash_img {
   height: 50%;
   margin: 10px;
-<!--  box-shadow: 10px 14px 20px 0px rgba(226,204,189,1);-->
+  box-shadow: 10px 14px 20px 0px rgba(226,204,189,1);
 }
 
 .splash_img-1{
@@ -74,8 +75,9 @@
 
 
 @media screen and (min-width: 767px) {
-  .splash_row{
-    height: 400px; 
+  .splash_row{    
+  height: 350px; 
+
   }
   
   .splash_img{
