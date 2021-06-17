@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+.team_icon:hover {
+  filter: opacity(50%)
+}
 
 .splash_container {
   display: flex;
