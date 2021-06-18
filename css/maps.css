@@ -2,6 +2,15 @@
   box-sizing: border-box;
 }
 
+li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.maps_footer {
+  display: flex;
+  align-items: center;
+}
+
 .team_icon:hover {
   filter: opacity(50%)
 }
