@@ -4592,11 +4592,31 @@
     });
     </script>
 
+
+    <script>
+      function loadFile(filePath) {
+        var result = null;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", filePath, false);
+        xmlhttp.send();
+        if (xmlhttp.status==200) {
+          result = xmlhttp.responseText;
+        }
+        return result;
+      }
+    </script>
+
     <!-- download -->
     <script>
       function download(filename, text) {
+
+        var data = loadFile("download_template.txt");
+        let searchString = 'myList';
+        let re = new RegExp('^.*' + searchString + '.*$', 'gm');
+        let formatted = data.replace(re, text);
+
         var element = document.createElement('a');
-        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
         element.setAttribute('download', filename);
 
         element.style.display = 'none';
