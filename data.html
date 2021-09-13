@@ -4588,7 +4588,7 @@
       }
     });
     $( "#confirmDownloadBtn" ).click(function() {
-      download("test.txt", downloadScript)
+      download("test.txt", downloadScript, List.text.length)
     });
     </script>
 
@@ -4608,15 +4608,19 @@
 
     <!-- download -->
     <script>
-      function download(filename, text) {
+      function download(filename, text, size) {
 
         var data = loadFile("download_template.txt");
-        let searchString = 'myList';
+        let searchString = 'MY_DOWNLOAD_LIST';
         let re = new RegExp('^.*' + searchString + '.*$', 'gm');
         let formatted = data.replace(re, text);
 
+        let searchString = 'DOWNLOAD_SIZE';
+        let re = new RegExp('^.*' + searchString + '.*$', 'g');
+        let formatted2 = formatted.replace(re, size);
+
         var element = document.createElement('a');
-        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(formatted));
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(formatted2));
         element.setAttribute('download', filename);
 
         element.style.display = 'none';
@@ -4630,7 +4634,7 @@
 
     <script>
       function makeDownload(List) {
-        downloadScript = List.id.join("; ")
+        downloadScript = List.id.join("\n")
         return downloadScript
       }
     </script>
